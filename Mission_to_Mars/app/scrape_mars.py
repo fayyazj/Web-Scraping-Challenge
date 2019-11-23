@@ -7,6 +7,7 @@ def scrape():
     browser = Browser('chrome', **executable_path, headless=False)
 
     url = 'https://mars.nasa.gov/news/'
+
     browser.visit(url)
 
     soup = BeautifulSoup(browser.html)
@@ -24,8 +25,7 @@ def scrape():
     foot = soup.find('footer')
 
     link = foot.find('a')['data-fancybox-href']
-    featured_image_url = 'jpl.nasa.gov' + link
-    featured_image_url
+    featured_image_url = 'https://www.jpl.nasa.gov' + link
 
     url3 = 'https://twitter.com/marswxreport?lang=en'
     browser.visit(url3)
